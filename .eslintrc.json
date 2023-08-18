@@ -1,0 +1,54 @@
+{
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+        "@react-native-community"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "comma-dangle": 0,
+        "curly": ["error", "all"],
+        "eol-last": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved": [2, { "ignore": ["@env"] }],
+        "jsx-quotes": 0,
+        "keyword-spacing": 0,
+        "new-parens": 0,
+        "no-extra-semi": 0,
+        "no-floating-decimal": 0,
+        "no-mixed-spaces-and-tabs": 0,
+        "no-spaced-func": 0,
+        "no-trailing-spaces": 0,
+        "no-unused-vars": 2,
+        "no-restricted-properties": [
+        0,
+        {
+            "object": "Math",
+            "property": "pow"
+        }
+        ],
+        "no-use-before-define": 0,
+        "no-useless-constructor": 0,
+        "quotes": [
+        "error",
+        "single",
+        { "avoidEscape": true, "allowTemplateLiterals": true }
+        ],
+        "react/jsx-props-no-spreading": 0,
+        "react-native/no-inline-styles": 2,
+        "semi": 0,
+        "semi-spacing": 0,
+        "space-infix-ops": 0,
+        "space-unary-ops": 0
+    },
+    "globals": {
+        "__DEV__": false
+    }
+}
