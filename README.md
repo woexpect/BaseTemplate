@@ -1,68 +1,87 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Intro
 
-# Getting Started
+This is a template project that uses a series of basic packages to start almost any React Native project, I assume you have already setup the React Native environment for Android and iOS in your local machine, the only thing you need to do is to clone this repo and start working on top of it.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+# Content
+This project contains a set of base libraries that allow new and experimented React Native users to have a quick-start project setup for almost any kind of application, here is a list of the libraries/features it contains:
 
-## Step 1: Start the Metro Server
+- Basic setup of the following libraries.
+- Set of well arranged folders to put the content into.
+- Set of useful node scripts in the **package.json** folder.
+   - **android:clean** -> Cleans the Android project.
+   - **android-r** -> Creates a release mode build.
+   - **pods** -> Installs the cocoa pods in the iOS project.
+   - **start-r** -> Starts the metro bundler resetting the cache.
+- **React Navigation** for in app screen registering and navigation. ([check documentation](https://reactnavigation.org/docs/getting-started)).
+- **React Navigation Stack** library for basic app navigation. ([check documentation](https://reactnavigation.org/docs/stack-navigator)).
+- **AnimatedSwitchStack** component for complex screen transitions, like when the users does login (example of usage in the **Router** component).
+- **Redux Toolkit** for state management and sample slices with use cases. ([check documentation](https://redux-toolkit.js.org/introduction/getting-started)).
+- **AsyncStorage** for storing simple data ([check documentation](https://github.com/react-native-async-storage/async-storage)).
+- **date-fns** for easily handling dates in Javascript ([check documentation](https://date-fns.org/docs/Getting-Started)).
+- **react-i18next** for locally handling locales.
+- Set of plugins for better linting the code if shared with other people.
+- An **api** folder containing a JS sample code with examples of https calls (**index.js**) and a **service.js** file that handles this calls and their state.
+- **react-native-splash-screen** for handling splash screen in app.
+- **react-native-size-matters** for better and easy handling of several screen ratios in different devices.
+- **api** folder to store all the files related to external communication of the app.
+- **assets** folder to store all the assets of the app.
+- **common** folder to store all the shared resources of the app.
+- **components** folder to store all new components of the app.
+- **navigation** folder to store all the files related to the app's navigation.
+- **redux** folder to store all the slices for handling the application's state management.
+- **screens** folder to store all sets of screens in coherent groups.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+# Downloading and running the project
+
+## Step 1: Clone this repo into your machine
+
+Use:
 
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+git clone https://github.com/woexpect/BaseTemplate.git
 ```
 
-## Step 2: Start your Application
+To download this repo into your local machine.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Step 2: Install the projects dependencies
 
-### For Android
+As any other React Native project, the first thing you have to do is install the project's dependencies, from your terminal run:
 
+```bash
+# Navigate to your project's folder
+cd ~/path_to_your_project_folder
+# Install the node modules
+npm install
+```
+
+## Step 3: Install cocoa pods 
+
+For the application to be able to run in iOS devices, please run the following command:
+
+**While being in your project's folder (on terminal) For Android:**
+```bash
+# using npm
+npm run pods
+```
+
+## Step 4: Run the application
+
+To make sure everything is working as expected, before you start putting your code on top of this project run the application in both Android and iOS:
+
+**While being in your project's folder (on terminal) For Android:**
 ```bash
 # using npm
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### For iOS
-
+**While being in your project's folder (on terminal) For iOS:**
 ```bash
 # using npm
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+If everything is set up _correctly_, you should see the template app running in your _Android Emulator_ or _iOS Simulator.
 
 # Troubleshooting
 

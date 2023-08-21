@@ -13,10 +13,10 @@ import store from './src/redux/store';
 import Router from './src/navigation/Router';
 
 LogBox.ignoreLogs([
+  // Examples
   'Require cycle: node_modules/rn-fetch-blob/index.js',
   'Warning: An effect function must not return anything besides a function, which is used for clean-up. You returned null.',
   'Warning: Internal React error: Attempted to capture a commit phase error inside a detached tree. This indicates a bug in React.',
-  'Warning: Cannot update a component (`PostActions`)',
 ]);
 
 function App() {

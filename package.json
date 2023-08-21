@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean && cd ..",
+    "android-r": "react-native run-android --variant=\"release\"",
+    "husky-install": "husky install",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "lint-staged": "lint-staged --config lint-staged.js",
     "pods": "cd ios && pod install && cd ..",
+    "prettier": "prettier src -check",
     "start": "react-native start",
     "start-r": "react-native start --reset-cache",
     "test": "jest"
