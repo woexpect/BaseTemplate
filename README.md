@@ -12,6 +12,7 @@ This project contains a set of base libraries that allow new and experimented Re
    - **android-r** -> Creates a release mode build.
    - **pods** -> Installs the cocoa pods in the iOS project.
    - **start-r** -> Starts the metro bundler resetting the cache.
+- **dot-env** for importing environment variables stored in a .env file (create a .env file in the root of the project and add the environment variables you need).
 - **React Navigation** for in app screen registering and navigation. ([check documentation](https://reactnavigation.org/docs/getting-started)).
 - **React Navigation Stack** library for basic app navigation. ([check documentation](https://reactnavigation.org/docs/stack-navigator)).
 - **AnimatedSwitchStack** component for complex screen transitions, like when the users does login (example of usage in the **Router** component).
