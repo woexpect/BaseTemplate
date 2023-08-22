@@ -38,10 +38,6 @@ const MAIN_APPLICATION_JAVA = 'MainApplication.java';
 const DEFAULT_APP_NAME = 'BaseTemplate';
 const DEFAULT_ANDROID_PACKAGE = /com.basetemplate/g;
 
-// let fileString = fs.readFileSync('./android/app/src/main/java/com/basetemplate/MainActivity.java').toString();
-// fileString = fileString.replace(DEFAULT_ANDROID_PACKAGE, 'package co.com.basetemplate;');
-// fs.writeFileSync('./android/app/src/main/java/com/basetemplate/MainActivity.java', fileString);
-
 const writeAndReplaceFileToNewRoute = (originalFilePath, destinationFilePath, contentToReplace, newContent) => {
   console.log(`[STARTING] writeAndReplaceFileToNewRoute`);
   console.log(`originalFilePath   [${originalFilePath}]`);
@@ -49,9 +45,9 @@ const writeAndReplaceFileToNewRoute = (originalFilePath, destinationFilePath, co
   console.log(`contentToReplace   [${contentToReplace}]`);
   console.log(`newContent         [${newContent}]`);
   try {
-    // let fileString = fs.readFileSync(originalFilePath).toString();
-    // fileString = fileString.replace(contentToReplace, newContent);
-    // fs.writeFileSync(destinationFilePath, fileString);
+    let fileString = fs.readFileSync(originalFilePath).toString();
+    fileString = fileString.replace(contentToReplace, newContent);
+    fs.writeFileSync(destinationFilePath, fileString);
     console.log(`[SUCCESS] writeAndReplaceFileToNewRoute`);
     console.log(`============================================================================`);
   } catch (error) {
@@ -63,9 +59,9 @@ const writeAndReplaceFileToNewRoute = (originalFilePath, destinationFilePath, co
 const removePaths = async () => {
   console.log(`[STARTING] removePath`);
   try {
-    await fs.rmdir(`${ANDROID_DEBUG_JAVA_PATH}`, { recursive: true });
-    await fs.rmdir(`${ANDROID_MAIN_JAVA_PATH}`, { recursive: true });
-    await fs.rmdir(`${ANDROID_RELEASE_JAVA_PATH}`, { recursive: true });
+    await fsp.rm('./android/app/src/debug/java/com', { recursive: true });
+    await fsp.rm('./android/app/src/main/java/com', { recursive: true });
+    await fsp.rm('./android/app/src/release/java/com', { recursive: true });
     console.log(`[SUCCESS] removePath`);
     console.log(`============================================================================`);
   } catch (error) {
@@ -201,8 +197,7 @@ const createDirectory = async (directoryPath) => {
   try {
     console.log('[STARTING] CREATION OF NEW DIRECTORY');
     console.log(`DIRECTORY PATH   [${directoryPath}]`);
-    // TODO - uncomment
-    // await fs.mkdir(directoryPath, { recursive: true });
+    await fsp.mkdir(directoryPath, { recursive: true });
     console.log('[FINISHED] CREATION OF NEW DIRECTORY SUCCESSFUL');
     console.log(`============================================================================`);
   } catch(error) {
@@ -348,34 +343,3 @@ const main = async () => {
 }
 
 main();
-// ----------------------------
-
-// async function renameDirectory(oldName, newName) {
-//   try {
-//     await fs.rename(oldName, newName);
-//   } catch (err) {
-//     console.log(`Android directory change error ${err} [FINISHED WITH ERROR]`);
-//   }
-// }
-
-// // Folder locations
-// const oldAndroidDebugName = './android/app/src/debug/java/com/basetemplate';
-// const newAndroidDebugName = './android/app/src/debug/java/com/';
-// const oldAndroidMainName = './android/app/src/main/java/com/basetemplate';
-// const newAndroidMainName = './android/app/src/main/java/com/';
-// // File location
-// const rnFlipperDebug = `${newAndroidDebugName}/ReactNativeFlipper.java`;
-// const mainActivity = `${newAndroidMainName}/MainActivity.java`;
-// const mainApplication = `${newAndroidMainName}/MainApplication.java`;
-// const rnFlipperMain = `${newAndroidMainName}/ReactNativeFlipper.java`;
-
-// console.log('========================================================================');
-// console.log('Changing Android directory & files [STARTED]');
-
-// createDirectory().then(() => {
-//   console.log('Android directory renamed [SUCCESSFULLY FINISHED]');
-// });
-
-// renameDirectory(oldAndroidDebugName, newAndroidDebugName).then(() => {
-//   console.log('Android directory renamed [SUCCESSFULLY FINISHED]');
-// });
