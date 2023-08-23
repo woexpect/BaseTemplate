@@ -23,6 +23,7 @@ const IOS_PROJECT_PBXPROJ = './ios/BaseTemplate.xcodeproj';
 const IOS_INFO_PLIST = './ios/BaseTemplate/Info.plist';
 const IOS_LAUNCH_SCREEN_PLIST = './ios/BaseTemplate/LaunchScreen.storyboard';
 const APP_JSON_PATH = './app.json';
+const APP_DELEGATE_PATH = './ios/BaseTemplate/AppDelegate.mm';
 const PACKAGE_LOCK_PATH = './package-lock.json';
 const PACKAGE_PATH = './package.json';
 const SETTINGS_GRADLE_PATH = './android/settings.gradle';
@@ -252,6 +253,12 @@ const changePackageNames = async () => {
 }
 
 const changeAppNames = async () => {
+  await writeAndReplaceFileToNewRoute(
+    `${APP_DELEGATE_PATH}`,
+    `${APP_DELEGATE_PATH}`, 
+    DEFAULT_APP_NAME,
+    `${APP_NAME}`,
+  );
   await writeAndReplaceFileToNewRoute(
     `${APP_JSON_PATH}`,
     `${APP_JSON_PATH}`, 
