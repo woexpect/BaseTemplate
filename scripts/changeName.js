@@ -306,7 +306,17 @@ const changeAppDisplayNames = async () => {
 };
 
 const deleteTrash = async () => {
-
+  try {
+    console.log('[STARTING] DELETION OF PATHS');
+    await fsp.rm('./android/app/src/debug/java/com', { recursive: true });
+    await fsp.rm('./android/app/src/main/java/com', { recursive: true });
+    await fsp.rm('./android/app/src/release/java/com', { recursive: true });
+    console.log('[FINISHED] DELETION OF PATHS SUCCESSFUL');
+    console.log(`============================================================================`);
+  } catch(error) {
+    console.log(`Directory deletion FAILED [${error}] [FINISHED WITH ERROR]`);
+    console.log(`============================================================================`);
+  }
 };
 
 const masterBuilder = async () => {
@@ -318,7 +328,7 @@ const masterBuilder = async () => {
   console.log(`[STARTING] CHANGE OF APP DISPLAY NAME [${APP_DISPLAY_NAME}]`);
   await changeAppDisplayNames();
   console.log(`[STARTING] REMOVE TRASH CONTENT LEFT`);
-  await removePaths();
+  await deleteTrash();
   return;
 };
 
