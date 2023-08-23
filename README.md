@@ -84,6 +84,15 @@ npm run ios
 
 If everything is set up _correctly_, you should see the template app running in your _Android Emulator_ or _iOS Simulator.
 
+# Custom Configuration
+
+Once the project is proven working, you might think is now time to start adding code to the repo and make it your own, but as you might also know, you need to setup the project name for your needs. Don't worry, I've got you cover, just follow the next steps:
+
+- In the terminal, go to the root of this project and run the following code and carefully (PLEASE) read the instructions prompted, you will be asked 3 things, the app's package, the application name, and the application's display name:
+```bash
+node scripts/changeName.js
+```
+
 # Troubleshooting
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
