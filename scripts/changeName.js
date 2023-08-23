@@ -36,7 +36,7 @@ const RN_FLIPPER_JAVA = 'ReactNativeFlipper.java';
 const MAIN_ACTIVITY_JAVA = 'MainActivity.java';
 const MAIN_APPLICATION_JAVA = 'MainApplication.java';
 
-const DEFAULT_APP_NAME = 'BaseTemplate';
+const DEFAULT_APP_NAME = /BaseTemplate/g;
 const DEFAULT_ANDROID_PACKAGE = /com.basetemplate/g;
 
 const writeAndReplaceFileToNewRoute = (originalFilePath, destinationFilePath, contentToReplace, newContent) => {
